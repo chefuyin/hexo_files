@@ -13,7 +13,9 @@ tags:
 ---
 
 #### 导语：
-`Hexo` 是一个快速、简洁且高效的博客框架。`Hexo` 使用 `Markdown`（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
+`Hexo` 是一个快速、简洁且高效的博客框架。`Hexo` 使用 `Markdown`（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成**静态网页**。
+
+**如果不想费心费力的去写HTML的话，也不愿意花费租用主机且想有自己独特域名的，选用GitHub+hexo是个不错的选择。**
 
 
 #### 一、官方文档：
@@ -52,9 +54,14 @@ tags:
 
 **2.下载github desktop**
 
+- github desktop下载
+[github desktop下载地址]()
+
 ![github desktop](/images/hexo/3.png)
 
-下载后先安装即可，下文讲如何注册、创建仓库、设置域名等
+下载后先安装即可，后文讲如何注册、创建仓库、设置域名等
+
+
 
 
 #### 四、下载、安装hexo
@@ -143,11 +150,111 @@ url：改为自己注册的域名
 
 - 在命令行输入如下命令启动服务器：
 
-```$ hexo server```
+`$ hexo server`
+
+
+
 
 ![启动本地服务器](/images/hexo/11.png)
 
 - 在浏览器搜索栏里输入`localhost:4000`就可以预览到网站了
 
 - `ctrl+c`可以退出本地服务器
+
+#### 七、github 注册、同步
+**1.github 注册**
+![注册github](/images/hexo/4.png)
+
+**2.新建仓库**
+- 通过“new repository”新建代码仓库，届时用于存储博客需要展示的页面等文件
+![新建仓库](/images/hexo/12.png)
+- 使用"用户名"+"github.io"组合命名仓库，注意每个账户仅能配置一个这样的仓库。
+实例中用户名"yin",所以用"yin.github.io"
+![设置名字](/images/hexo/13.png)
+
+- 将仓库克隆到本地
+用客户端打开——然后选择仓库本地存储路径——保存
+![用desktop clone到本地](/images/hexo/14.png)
+
+![选择路径，然后clone](/images/hexo/15.png)
+
+**3.复制hexo里的public文件夹中的所有文件到本地仓库**
+复制粘贴到本地仓库后，GitHub desktop就可以自动发现变化了
+![复制文件](/images/hexo/16.png)
+![粘贴文件](/images/hexo/17.png)
+![github desktop发现文件](/images/hexo/18.png)
+
+**4.提交修改，然后同步**
+- 选择"master"，填写commit说明，然后点击"commit to master",commit后其实4就会发生变化,然后选择"push origin",完成同步。这样在网页版看到的就是同步后的内容了。
+![commit](/images/hexo/19.png)
+
+![push origin](/images/hexo/20.png)
+
+![github repository](/images/hexo/21.png)
+
+- 关于git的用法，还有很多很多，具体可以学习廖雪峰的教程：
+[廖雪峰博客](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
+
+#### 八、域名注册与绑定
+
+**1.注册域名**
+国内的域名注册商一般需要做备案，为了偷懒，我直接在“狗爹”[godaddy.com](https://godaddy.com)上注册的。
+
+- 挑选喜欢的域名，添加到购物车
+![域名示例](/images/hexo/22.png)
+- 隐私保护不需要的话可以选“不，谢谢”
+![隐私保护](/images/hexo/23.png)
+- 虚拟主机选“不，谢谢”，因为我们后续将使用GitHub托管内容
+![虚拟主机](/images/hexo/24.png)
+- 前去付款
+![订单信息](/images/hexo/25.png)
+- 开始付款，填写结算信息，可以选择支付宝和银联
+![付款页面](/images/hexo/26.png)
+
+**2.使用DNSPOD来解析域名**
+- 域名注册完成后进入“我的产品”，示例是我自己的域名
+![域名](/images/hexo/27.png)
+
+- 自定义域名服务器
+DNSPOD免费的域名服务器分别如下，添加后点击保存
+
+
+
+`f1g1ns1.dnspod.net`
+
+`f1g1ns2.dnspod.net`
+
+
+
+![自定义域名服务器](/images/hexo/28.png)
+
+**3.github 仓库里添加CNAME**
+- 通过“create new file”添加CNAME
+![创建文件](/images/hexo/32.png)
+- 注意CNAME文件名为大写，且**没有后缀名**
+![CNAME](/images/hexo/33.png)
+- 在文件中写入自己的网址，注意没有"http"、"https"和"www"
+- "commit new file"提交文件
+![commit CNAME](/images/hexo/34.png)
+- 进入该仓库的"settings"，往下拉设置域名
+![settings](/images/hexo/35.png)
+![settings](/images/hexo/31.png)
+
+**4.进入DNSPOD去绑定域名，设置解析**
+- 注册dnspod账户,不细说
+[dnspod.cn](https://dnspod.cn/)
+
+- 进入控制台——域名解析——添加域名
+![添加域名](/images/hexo/29.png)
+- 添加 @ 和 www 两个主机记录，下图第一、四行红色框内的
+![主机记录](/images/hexo/30.png)
+
+- 记录值可以写"用户名"+"github.io"的域名，如"yin.github.io"，也可以先ping到"用户名"+"github.io"的ip后填写进入
+![ping](/images/hexo/36.png)
+
+**5.其他注意事项:**
+- CNAME文件请同步到本地仓库，将hexo public文件更新到本地仓库时，不要把CNAME删除了。
+- 如果涉及多个设备管理博客，可以另建一个仓库，把hexo里的所有文件同步到GitHub里了。
+
+
 
