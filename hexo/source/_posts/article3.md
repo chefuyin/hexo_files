@@ -72,10 +72,10 @@ tags:
 可以先建好文件夹，然后在文件夹使用`shift`+鼠标右键，然后选择打开命名行。我的是win10用的是powershell，效果没啥差别。
 ![shift+右键](/images/hexo/5.png)
  - 在命令行输入:
-`$ hexo init <folder`
+`$ hexo init <folder>`
 注意：`<folder`是你打算存放的目标文件夹名字
  - 切换至目标文件：
- `$ cd <folder`
+ `$ cd <folder>`
  - 输入命令：
  `$ npm install`
  - 文件夹结构
@@ -113,7 +113,7 @@ url：改为自己注册的域名
 **1.hexo 创建文章**
 
 使用如下命令可以创建新文章：
-`$ hexo new [layout] <title`
+`$ hexo new [layout] <title>`
 
 可以在命令中指定文章的布局（layout），默认为 post，可以通过修改 `_config.yml` 中的 `default_layout` 参数来指定默认布局。由于我们并未修改，所以可以直接使用`$ hexo new <title`创建文章。
 
@@ -122,7 +122,7 @@ url：改为自己注册的域名
 **2.编辑文章**
 
   - 查找到`.md`文件
-由于layout我们并未修改，所以默认在hexo目标文件夹的`\source\_posts`文件夹下，为`<title.md`文件，该文件可以使用文本编辑器进行编辑，使用MARKDOWN语法。
+由于layout我们并未修改，所以默认在hexo目标文件夹的`\source\_posts`文件夹下，为`<title.md>`文件，该文件可以使用文本编辑器进行编辑，使用MARKDOWN语法。
   - vscode 下载
 目前我使用的是VSCODE,可以配合插件在编辑同时预览。
 
